@@ -1,0 +1,4 @@
+文件夹“STM32+NB+TFT”为网关PCB工程
+文件夹“采集端”为下位机采集端PCB工程
+均使用Altium Designer软件打开
+

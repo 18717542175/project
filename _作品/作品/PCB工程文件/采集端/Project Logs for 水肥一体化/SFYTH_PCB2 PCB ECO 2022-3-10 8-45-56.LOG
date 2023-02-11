@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=AT_TX Pin=IC1-1
+Removed Pin From Net: NetName=AT_RX Pin=IC1-4
+Removed Pin From Net: NetName=AT_RX Pin=U1-16
+Removed Pin From Net: NetName=AT_TX Pin=U1-17
+Added Pin To Net: NetName=AT_TX Pin=JP8-2
+Added Pin To Net: NetName=AT_RX Pin=JP8-7
+Added Pin To Net: NetName=AT_RX Pin=U1-29
+Added Pin To Net: NetName=AT_TX Pin=U1-30
+Added Pin To Net: NetName=PA2 Pin=IC1-4
+Added Pin To Net: NetName=PA2 Pin=U1-16
+Added Net: Name=PA2
+Added Pin To Net: NetName=PA3 Pin=IC1-1
+Added Pin To Net: NetName=PA3 Pin=U1-17
+Added Net: Name=PA3
+Added Room: Name=SFYTH_Sheet1

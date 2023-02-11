@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        body{
+
+        }
+
+        button {
+            font-size: 15px;
+            width: 45%;
+            height: 30px;
+            border: 2px solid #414f67;
+            border-radius: 4px;
+            background-color: #f9f1e6;
+            color: #414f67;
+            margin-left: 5px;
+            margin-bottom: 5px;
+        }
+
+        button:hover {
+            color: #f9f1e6;
+            background-color: #414f67;
+            border: 2px solid #f9f1e6;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button onclick="fnopen()">open</button> -->
+    <button onclick="fnreloadData()">reloadData</button>
+    <button onclick="fnclose()">close</button>
+    <button onclick="fnhide()">hide</button>
+    <button onclick="fnshow()">show</button>
+    <button onclick="fnscrollTo()">scrollTo</button>
+
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+
+    };
+
+    function fnopen() {
+        var UIBarChart = api.require('UIBarChart');
+        UIBarChart.open({
+            rect: {
+                x: 30,
+                y: api.frameHeight / 2 - 170,
+                w: api.frameWidth - 60,
+                h: 340
+            },
+            yAxis: {
+                max: 50,
+                min: 0,
+                step: 10
+            },
+            data: [
+
+                {
+                    xAxis: '狮子座',
+                    yAxis: 26
+                }, {
+                    xAxis: '处女座',
+                    yAxis: 46
+                }, {
+                    xAxis: '天秤座',
+                    yAxis: 66
+                }, {
+                    xAxis: '天蝎座',
+                    yAxis: 11
+                }, {
+                    xAxis: '射手座',
+                    yAxis: 8
+                }, {
+                    xAxis: '摩羯座',
+                    yAxis: 56
+                }, {
+                    xAxis: '水瓶座',
+                    yAxis: 61
+                }, {
+                    xAxis: '双鱼座',
+                    yAxis: 35
+                }
+            ],
+            styles: {
+                yAxis: {
+                    width: 30,
+                    bg: '#414f67',
+                    markColor: '#f9f1e6',
+                    markSize: 12
+                },
+                xAxis: {
+                    height: 30,
+                    bg: '#414f67',
+                    markColor: '#f9f1e6',
+                    markSize: 12
+                },
+                coordinate: {
+                    bg: '#f9f1e6',
+                },
+                bar: {
+                    width: 30,
+                    bg: '#aed9d8',
+                    tint: '#85a9a2',
+                    interval: 16
+                }
+            },
+            fixedOn: api.frameName,
+            fixed: false
+        }, function(ret, err) {
+            if (ret) {
+                alert(JSON.stringify(ret));
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+    }
+
+    function fnreloadData() {
+        var UIBarChart = api.require('UIBarChart');
+        UIBarChart.reloadData({
+            id: 1,
+            type: 'prepend',
+            data: [{
+                xAxis: '白羊座',
+                yAxis: 80
+            }, {
+                xAxis: '金牛座',
+                yAxis: 0
+            }, {
+                xAxis: '双子座',
+                yAxis: 16
+            }, {
+                xAxis: '巨蟹座',
+                yAxis: 36
+            }]
+        }, function(ret, err) {
+            if (ret) {
+                alert(JSON.stringify(ret));
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+    }
+
+    function fnclose() {
+        var UIBarChart = api.require('UIBarChart');
+        UIBarChart.close({
+            id: 1
+        });
+    }
+
+    function fnhide() {
+        var UIBarChart = api.require('UIBarChart');
+        UIBarChart.hide({
+            id: 1
+        });
+    }
+
+    function fnshow() {
+        var UIBarChart = api.require('UIBarChart');
+        UIBarChart.show({
+            id: 1
+        });
+    }
+
+    function fnscrollTo() {
+        var UIBarChart = api.require('UIBarChart');
+        UIBarChart.scrollTo({
+            id: 1,
+            index: 3,
+            animation: true
+        });
+    }
+</script>
+
+</html>

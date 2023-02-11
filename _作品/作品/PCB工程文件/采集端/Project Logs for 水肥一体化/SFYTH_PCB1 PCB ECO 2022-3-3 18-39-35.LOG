@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=AIN2 Pin=V2-4
+Added Component: Designator=JP10(KF2EDGK5.08-LI-2P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "2P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "https://shop463601444.taobao.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "封装库来自淘宝卖家 ID：黄晶宝石"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=AIN2 Pin=JP10-1
+Added Pin To Net: NetName=VM Pin=JP10-2
+Added Member To Class: ClassName=SFYTH_Sheet1 Member=Component JP10 HDR-1X2
+Added Room: Name=SFYTH_Sheet1

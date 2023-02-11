@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>含量显示折线图</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <style>
+        header {
+            background-color: #0e4477;
+        }
+        
+        header ul li {
+            height: 50px;
+            line-height: 150px;
+            text-align: center;
+            display: none;
+            color: #f4f4f7;
+            position: relative;
+            font-size: 18px;
+        }
+        
+        header ul li.active {
+            display: block;
+        }
+        
+        #container {
+            background-color: #81a9c3;
+        }
+        
+        footer {
+            background-color: #0e4477;
+        }
+        
+        footer ul li {
+            height: auto;
+            line-height: 100px;
+            text-align: center;
+            display: none;
+            color: #f4f4f7;
+            position: relative;
+            font-size: 18px;
+        }
+        
+        footer ul li.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="height: 15%;">
+        <ul>
+            <li class="border-h active">可视化</li>
+        </ul>
+    </header>
+
+    <div id="container" style="height: 70%; width: 100%;bottom: auto;"></div>
+
+    <footer style="height: 15%;">
+        <ul>
+            <li class="border-m active">氨磷钾含量 观测点</li>
+        </ul>
+    </footer>
+
+</body>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    var dataGet;
+
+    var newdataP;
+    var newdataN;
+    var newdatak;
+    var newTemperature;
+    var newHamitity;
+    apiready = function() {
+        var footer = $api.dom('footer'); // 获取 footer 标签元素
+        var footerH = $api.fixTabBar(footer);
+        // getData();
+        // judge();
+        fnopendata();
+
+    };
+
+    function getData() {
+        // 提交JSON数据
+        api.ajax({
+            url: 'http://api.heclouds.com/devices/datapoints?devIds=907044351',
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+                'api-key': 'Ffm5zoe=kfmNTIzZscjg7gif2L0=',
+                'devIds': '907044351'
+            },
+            data: {
+                body: {
+
+                }
+            }
+        }, function(ret, err) {
+            // ret.data.devices[0].datastreams[0].value   json 解析
+            if (ret) {
+                dataGet = ret.data.devices[0].datastreams[0].value;
+                console.log(dataGet);
+                // console.log(JSON.stringify(ret)); //获取json对象key对应的value值
+                // console.log(JSON.stringify(ret.data.devices));
+            } else {
+                api.alert({
+                    msg: JSON.stringify(err)
+                });
+            }
+        });
+
+    }
+    // 判断是哪个的数据
+    function judge() {
+
+        if (dataGet >= 10000 && dataGet < 20000) {
+            newdataN = dataGet - 10000.0;
+            console.log(newdataN);
+        } else if (dataGet >= 20000 && dataGet < 30000) {
+            newdataP = dataGet - 20000.0;
+
+        } else if (dataGet >= 30000 && dataGet < 40000) {
+            newdatak = dataGet - 30000.0;
+        } else if (dataGet >= 40000 && dataGet < 50000) {
+            newTemperature = (dataGet - 40000.0) / 10.0;
+        } else if (dataGet >= 50000) {
+            newHamitity = (dataGet - 50000.0) / 100.0;
+            // console.log(newHamitity);
+        }
+    }
+
+    function fnopendata() {
+
+        var newData_P = [];
+        var newData_N = [];
+        var newData_k = [];
+
+
+
+        var indexi = 0;
+        var index = 10;
+        var id = 0;
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+
+        var option;
+
+
+
+        option = {
+            // 通过这个color修改两条线的颜色
+            color: ["#00f2f1", "#d142e7", "#4c9bfd"],
+            tooltip: {
+
+                trigger: 'axis',
+
+                axisPointer: {
+                    // 坐标轴指示器，坐标轴触发有效
+                    type: "line" // 默认为直线，可选为：'line' | 'shadow'
+                },
+            },
+
+            dataZoom: [{
+                type: 'inside' //使鼠标在图表中时滚轮可用
+            }],
+            legend: {
+                // 如果series 对象有name 值，则 legend可以不用写data
+                // 修改图例组件 文字颜色
+                textStyle: {
+                    color: "#4c9bfd"
+                },
+                // 这个10% 必须加引号
+                right: "25%",
+                top: "10%"
+
+            },
+            grid: {
+                top: "20%",
+                left: "3%",
+                right: "4%",
+                bottom: "3%",
+                show: true, // 显示边框
+                borderColor: "#0e4477", // 边框颜色
+                containLabel: true // 包含刻度文字在内
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: function() {
+                    var list = [];
+                    for (var i = 0; i < index; i++) {
+                        // 实时 时间
+                        list.push(new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds());
+
+                    }
+                    return list;
+                }(),
+                // 去除刻度线
+                axisTick: {
+                    show: false
+                },
+                // 修改x轴上的文字
+                axisLabel: {
+                    color: "#0e4477"
+                },
+                // 去除x轴
+                axisLine: {
+                    show: false
+                }
+            },
+
+            yAxis: {
+                type: 'value',
+                // 去除刻度线
+                axisTick: {
+                    show: false
+                },
+                // 修改y轴上的文字
+                axisLabel: {
+                    color: "#0e4477",
+                    formatter: '{value} mg/kg ' //给Y轴上的刻度加上单位
+                },
+                // 去除y轴
+                axisLine: {
+                    show: false
+                },
+                // y轴分割线的颜色
+                splitLine: {
+                    lineStyle: {
+                        color: "#cedde8"
+                    }
+                }
+            },
+            series: [{
+                        name: '磷',
+                        type: "line",
+                        // true 可以让我们的折线显示带有弧度
+                        smooth: true,
+                        data: newData_P
+                    },
+
+                    {
+                        name: '氮',
+                        type: "line",
+                        smooth: true,
+                        data: newData_N
+                    }, {
+                        name: '钾',
+                        type: "line",
+                        smooth: true,
+                        data: newData_k
+                    }
+
+
+                ] //series 只是数据
+        }
+
+        setInterval(function() {
+            getData();
+            var data1 = option.series[0].data;
+            for (var i = 0; i < 2; i++) {
+                // console.log(dataGet);
+                judge();
+                data1.push(newdataP);
+                if (i == 1) {
+                    data1.shift();
+                }
+            }
+
+            var data2 = option.series[1].data;
+            for (var i = 0; i < 2; i++) {
+                judge();
+                data2.push(newdataN);
+                if (i == 1) {
+                    data2.shift();
+                }
+            }
+
+
+            var data3 = option.series[2].data;
+            for (var i = 0; i < 2; i++) {
+                data3.push(newdatak); // 将请求过来的数据push进去
+                if (i == 1) {
+                    data3.shift();
+                }
+            }
+
+            option.xAxis.data.push(new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds());
+            option.xAxis.data.shift();
+            myChart.setOption(option);
+        }, 500);
+
+        // 4. 让图表跟随屏幕自动的去适应
+        window.addEventListener("resize", function() {
+            myChart.resize();
+        });
+    };
+</script>
+
+</html>

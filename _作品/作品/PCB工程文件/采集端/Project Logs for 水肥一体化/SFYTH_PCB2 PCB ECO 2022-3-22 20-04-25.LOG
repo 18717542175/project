@@ -1,0 +1,60 @@
+Removed Pin From Net: NetName=PB9 Pin=IC1-1
+Removed Pin From Net: NetName=PB13 Pin=IC1-4
+Removed Pin From Net: NetName=PB13 Pin=U1-16
+Removed Pin From Net: NetName=PB9 Pin=U1-17
+Removed Pin From Net: NetName=+5 Pin=USB1-1
+Removed Pin From Net: NetName=USB_D- Pin=USB1-2
+Removed Pin From Net: NetName=USB_D+ Pin=USB1-3
+Removed Pin From Net: NetName=AIN2 Pin=USB1-5
+Removed Pin From Net: NetName=AIN2 Pin=USB1-5
+Removed Pin From Net: NetName=AIN2 Pin=USB1-5
+Removed Pin From Net: NetName=AIN2 Pin=USB1-5
+Removed Pin From Net: NetName=AIN2 Pin=USB1-5
+Change Component Footprint: Designator=USB1 Old Footprint=USB-MICRO_E New Footprint=C 0603_L
+Change Component Comment : Designator=USB1 Old Comment=USB-5P New Comment=104
+Change Component Designator: OldDesignator=USB1 NewDesignator=C19
+Change component parameters: Designator = "USB1" ("C19"); Footprint = "USB-MICRO_E"; UniqueID = "\OMJNAHPQ" ("\OMJNAHPQ")
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "唯一出售店铺网址"; Value = "https://shop463601444.taobao.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "淘宝ID"; Value = "封装库来自淘宝 ID：黄晶宝石"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "联系售后，技术支持"; Value = "https://shop463601444.taobao.com"; VariantName = "[No Variations]"
+Added Component: Designator=JP8(HDR2.54-LI-2x4P)
+Add component (AddParameter): Name = "BOM名称"; Value = "4*2P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "https://shop463601444.taobao.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "封装库来自淘宝 ID：黄晶宝石"; VariantName = "[No Variations]"
+Added Component: Designator=JP11(HDR2.54-M-LI-7P)
+Add component (AddParameter): Name = "BOM名称"; Value = "7P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "https://shop463601444.taobao.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "封装库来自淘宝 ID：黄晶宝石"; VariantName = "[No Variations]"
+Added Component: Designator=USB?(USB-A/S_A)
+Add component (AddParameter): Name = "BOM名称"; Value = "USB-A型母接口"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "https://shop463601444.taobao.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "封装库来自淘宝 ID：黄晶宝石"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=AIN2 Pin=C19-1
+Added Pin To Net: NetName=+5 Pin=C19-2
+Added Pin To Net: NetName=PA3 Pin=IC1-1
+Added Pin To Net: NetName=PA2 Pin=IC1-4
+Added Pin To Net: NetName=+5 Pin=JP8-1
+Added Pin To Net: NetName=AT_TX Pin=JP8-2
+Added Pin To Net: NetName=PA15 Pin=JP8-3
+Added Pin To Net: NetName=AT_AUX Pin=JP8-5
+Added Pin To Net: NetName=AT_RX Pin=JP8-7
+Added Pin To Net: NetName=AIN2 Pin=JP8-8
+Added Pin To Net: NetName=AIN2 Pin=JP11-1
+Added Pin To Net: NetName=VCC3.3 Pin=JP11-2
+Added Pin To Net: NetName=PC13 Pin=JP11-3
+Added Pin To Net: NetName=PC14 Pin=JP11-4
+Added Pin To Net: NetName=PC15 Pin=JP11-5
+Added Pin To Net: NetName=PC0 Pin=JP11-6
+Added Pin To Net: NetName=PA2 Pin=U1-16
+Added Pin To Net: NetName=PA3 Pin=U1-17
+Added Pin To Net: NetName=+5 Pin=USB?-1
+Added Pin To Net: NetName=USB_D- Pin=USB?-2
+Added Pin To Net: NetName=USB_D+ Pin=USB?-3
+Added Pin To Net: NetName=AIN2 Pin=USB?-4
+Added Pin To Net: NetName=AIN2 Pin=USB?-4
+Added Pin To Net: NetName=AIN2 Pin=USB?-4
+Added Member To Class: ClassName=SFYTH_Sheet1 Member=Component JP8 Header 4X2
+Added Member To Class: ClassName=SFYTH_Sheet1 Member=Component JP11 HDR-1X7
+Added Member To Class: ClassName=SFYTH_Sheet1 Member=Component USB? USB
+Added Room: Name=SFYTH_Sheet1

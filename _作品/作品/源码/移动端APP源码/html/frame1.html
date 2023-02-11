@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>数据显示</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <style>
+        .empty {
+            text-align: center;
+            padding: 120px 0;
+        }
+        
+        body {
+            background-color: #81a9c3;
+        }
+        
+        button {
+            font-size: 15px;
+            width: 47%;
+            height: 60px;
+            border: 2px solid #414f67;
+            border-radius: 4px;
+            background-color: #f8f7f7;
+            color: #414f67;
+            margin-left: 5px;
+            margin-bottom: 5px;
+        }
+        
+        button:hover {
+            color: #f9f1e6;
+            background-color: #0c4250;
+            border: 2px solid #6281c5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="empty">
+        <div id="content" style="height: 100%;">
+            <button onclick="randomSwitchBtn()" id="THcontent">温湿度检测</button>
+            <button onclick="randomSwitchBtn()" id="contentN">氮磷钾含量</button>
+        </div>
+
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+
+<script type="text/javascript" src="../script/echart1.js"></script>
+<!-- <script type="text/javascript">
+    var idxxx;
+    new Vue({
+
+        el: '#content',
+        data: {
+            numberid: idxxx
+        },
+        methods: {
+            // 含量显示折线图
+            fnopendata() {
+                var dom = document.getElementById("container");
+                var myChart = echarts.init(dom);
+                var option = {
+
+                    color: ['#00f2f1', '#ed3f35'],
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+
+                        textStyle: {
+                            color: "#231c1c"
+                        }
+                    },
+                    grid: {
+                        top: "20%",
+                        left: "1%",
+                        right: "4%",
+                        bottom: "3%",
+                        show: true,
+                        /*显示边框*/
+                        borderColor: "#012f4a",
+                        /*边框颜色*/
+                        containLabel: true /*包含刻度文字在内*/
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        axisTick: {
+                            show: false /*去除刻度线*/
+                        },
+                        axisLabel: {
+                            color: "#4c9bfd" /*文本颜色*/
+                        },
+                        axisLine: {
+                            show: false /*去除轴线*/
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisTick: {
+                            show: false /*去除刻度线*/
+                        },
+                        axisLabel: {
+                            color: "#4c9bfd" /*文本颜色*/
+                        },
+                        axisLine: {
+                            show: false /*去除轴线*/
+                        }
+                    },
+                    series: [{
+                        name: '磷',
+                        type: 'line',
+                        // stack: 'Total',
+                        smooth: true,
+                        data: [150, 230, 224, 218, 135, 147, 260]
+                    }]
+                };
+
+                if (option && typeof option === 'object') {
+                    myChart.setOption(option);
+                }
+
+
+            },
+            // 柱状图
+            fnopen() {
+                var UIBarChart = api.require('UIBarChart');
+                idname1++;
+                UIBarChart.open({
+                    rect: {
+                        x: 10,
+                        y: api.frameHeight / 2 - 160,
+                        w: api.frameWidth - 25,
+                        h: 440
+                    },
+                    yAxis: {
+                        max: 50,
+                        min: 0,
+                        step: 10
+                    },
+                    data: [
+
+                        {
+                            xAxis: '狮子座',
+                            yAxis: 26
+                        }, {
+                            xAxis: '处女座',
+                            yAxis: 46
+                        }, {
+                            xAxis: '天秤座',
+                            yAxis: 66
+                        }, {
+                            xAxis: '天蝎座',
+                            yAxis: 11
+                        }, {
+                            xAxis: '射手座',
+                            yAxis: 8
+                        }, {
+                            xAxis: '摩羯座',
+                            yAxis: 56
+                        }, {
+                            xAxis: '水瓶座',
+                            yAxis: 61
+                        }, {
+                            xAxis: '双鱼座',
+                            yAxis: 35
+                        }
+                    ],
+                    styles: {
+                        yAxis: {
+                            width: 30,
+                            bg: '#414f67',
+                            markColor: '#f9f1e6',
+                            markSize: 12
+                        },
+                        xAxis: {
+                            height: 30,
+                            bg: '#414f67',
+                            markColor: '#f9f1e6',
+                            markSize: 12
+                        },
+                        coordinate: {
+                            bg: '#f9f1e6',
+                        },
+                        bar: {
+                            width: 30,
+                            bg: '#aed9d8',
+                            tint: '#85a9a2',
+                            interval: 16
+                        }
+                    },
+                    fixedOn: api.frameName,
+                    fixed: false
+                }, function(ret, err) {
+                    if (ret) {
+                        alert(JSON.stringify(ret));
+                    } else {
+                        alert(JSON.stringify(err));
+                    }
+                });
+            },
+
+            fnclose() {
+
+                var UIBarChart = api.require('UIBarChart');
+                UIBarChart.close({
+                    id: idname1
+                });
+
+            },
+            checlLine(index) {
+                this.currentIndex = index;
+                if (this.currentIndex == 1) {
+                    this.$nextTick(() => {
+                        //  折线图
+                        this.fnclose();
+                        this.fnopendata();
+                        idxxx = 1;
+                    });
+                } else {
+                    // 不等于 1
+                    this.$nextTick(() => {
+                        this.fnopen();
+                        idxxx = 0;
+                    });
+                }
+                console.log(numberid);
+            }
+
+        }
+
+    });
+</script> -->
+
+</html>

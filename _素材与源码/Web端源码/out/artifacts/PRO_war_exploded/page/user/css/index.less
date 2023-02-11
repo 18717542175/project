@@ -1,0 +1,360 @@
+//css 初始化
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*声明字体*/
+@font-face {
+  font-family: electronicFont;
+  src: url("../font/DS-DIGIT.TTF");
+}
+li{
+  list-style: none;   /*去掉li的小圆点*/
+}
+body{
+  min-width: 12.8rem;
+  line-height: 1.15;
+  /*不重复 垂直靠上*/
+  background:url("../images/bg.jpg") no-repeat top center;
+
+}
+header{
+  position: relative;
+  height: 1.25rem;
+  background:url("../images/head_bg.png") no-repeat;
+  background-size: 100% 100%;
+  h1{
+    font-size: .457rem;
+    color: aliceblue;
+    text-align: center;
+    line-height: 1rem;
+  }
+  .showTime{
+    position: absolute;   /*使用绝对定位 同时使用left和right*/
+    right: 0.375rem;
+    top: 0;
+    line-height: 0.9375rem;
+    font-size: 0.25rem;
+    color: aliceblue;
+  }
+}
+
+/*页面主题盒子*/
+.mainbox{
+  display: flex;    /*用于flex父亲使用*/
+  min-width: 12.8rem;
+  max-width: 24rem;
+  margin: 0 auto;
+  padding: 0.125rem 0.125rem 0 ;
+  .column{
+    flex: 3;
+    &:nth-child(2){
+      flex:5;
+      margin: 0 0.125rem 0.1875rem;  /*外边距*/
+    }
+    &:nth-child(3){
+      flex: 3;
+    }
+    overflow: hidden;
+  }
+
+  /*panel的公共样式*/
+  .panel{
+    position: relative;
+    height: 3.875rem;
+    padding: 0 0.1875rem 0.5rem ;
+    margin-bottom: 0.3rem; /*盒子下方的距离*/
+    border: 0.0125rem solid rgba(25 186 139 0.17);
+    background: url("../images/line(1).png") rgba(255, 255, 255, 0.03);
+
+    /*制作四角*/
+    &::before{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0.125rem;
+      height: 0.125rem;
+      border-left: 0.025rem solid #02a6b5;
+      border-top: 0.025rem solid #02a6b5;
+      content: "";
+    }
+    &::after{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0.125rem;
+      height: 0.125rem;
+      border-right: 0.025rem solid #02a6b5;
+      border-top: 0.025rem solid #02a6b5;
+      content: "";
+    }
+
+    .panel-footer{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+
+      /*制作四角*/
+      &::before{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0.125rem;
+        height: 0.125rem;
+        border-left: 0.025rem solid #02a6b5;
+        border-bottom: 0.025rem solid #02a6b5;
+        content: "";
+      }
+      &::after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0.125rem;
+        height: 0.125rem;
+        border-right: 0.025rem solid #02a6b5;
+        border-bottom: 2px solid #02a6b5;
+        content: "";
+      }
+    }
+
+    h2{
+      height: 0.6rem;
+      color: aliceblue;
+      line-height: 0.6rem;
+      font-size: 0.30rem;
+      text-align: center;
+      font-weight: 400; /*不加粗*/
+
+      a{
+        color: #ffffff;
+        text-decoration: underline;
+        margin:10px;
+      }
+    }
+    .chart{
+      height: 3.3rem;
+      //background-color: pink;
+    }
+  }
+}
+
+
+/*数字模块*/
+.no{
+  background-color: rgba(101, 132, 226, 0.1);
+  padding: 0.1875rem;
+  .no-hd{
+    position: relative;
+    border: 1px solid rgba(25, 186, 139, 0.17);
+    ur{
+      display: flex;
+      li{
+        position: relative;
+        flex: 1;
+        line-height: 1rem;
+        font-size: 0.875rem;
+        color: #ffeb7b;
+        text-align: center;
+        font-family: "electronicFont";
+        &::after{
+          content: "";
+          position: absolute;
+          top: 25%;
+          right: 0;
+          height: 50%;
+          width: 1px;
+          background: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+    /*制作四角*/
+    &::before{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0.4rem;
+      height: 0.125rem;
+      border-top: 0.025rem solid #02a6b5;
+      border-left: 0.025rem solid #02a6b5;
+      content: "";
+    }
+    &::after{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0.4rem;
+      height: 0.125rem;
+      border-right: 0.025rem solid #02a6b5;
+      border-bottom: 2px solid #02a6b5;
+      content: "";
+    }
+  }
+  .no-bd{
+    ur{
+      display: flex;
+      li{
+        flex: 1;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.225rem;
+        margin-top: 10px;
+        line-height: 0.5rem;
+        height: 0.5rem;
+      }
+    }
+
+  }
+}
+.map{
+  position: relative;
+  height: 10.125rem;
+  .map0{
+    width: 10rem;
+    height: 7.5rem;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    //background: url("../images/map.png");
+    background-size: 100% 100%;
+    //padding: 30px;
+
+    .contr{
+      position: relative;
+      .contr1{
+        display: flex;
+        .openWater{
+          flex: 1;
+          position: absolute;
+          top: 100%;
+          left: 30%;
+          width: 2rem;
+          height: 1rem;
+          background: #6699CC;
+          border-radius: 30px;
+          box-shadow: 8px 8px 5px #6c6c6c;
+          opacity: 0.7;
+        }
+        .closeWater{
+          flex: 1;
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          width: 2rem;
+          height: 1rem;
+          background: #6699CC;
+          border-radius: 30px;
+          box-shadow: 8px 8px 5px #6c6c6c;
+          opacity: 0.7;
+
+        }
+        .update{
+          flex: 1;
+          position: absolute;
+          top: 100%;
+          left: 70%;
+          width: 2rem;
+          height: 1rem;
+          background: #6699CC;
+          border-radius: 30px;
+          box-shadow: 8px 8px 5px #6c6c6c;
+          opacity: 0.7;
+        }
+      }
+    }
+    .iframe{
+      width: 10rem;
+      height: 7.7rem;
+      position: relative;
+      top: 5%;
+      left: 10.5%;
+      //border: rgba(55, 56, 84, 0.73);
+      //border:5px;
+      //border-style: hidden;
+      border: none;
+      //frameborder: no;
+    }
+
+
+  }
+  .map1{
+    //width: 6.475rem;
+    width: 8rem;
+    height: 6.475rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url("../images/map.png");
+    background-size: 100% 100%;
+    margin-left: 200px;
+    //margin-right: 100px;
+    //opacity: ;
+
+  }
+  .map2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8.0375rem;
+    height: 8.0375rem;
+    background: url("../images/lbx.png");
+    background-size: 100% 100%;
+    animation: rotate1 15s linear infinite;
+    opacity: 0.6;
+  }
+  .map3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7.075rem;
+    height: 7.075rem;
+    background: url("../images/jt.png");
+    background-size: 100% 100%;
+    animation: rotate2 15s linear infinite;
+    opacity: 0.6;
+  }
+  .chart{
+    position: absolute;
+    top: 0;
+    left: 0;
+    //background: #FF7F50;
+    width: 100%;
+    height: 10.125rem;
+  }
+
+  /*定义旋转动画*/
+  @keyframes rotate1{
+    from{
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to{
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  @keyframes rotate2{
+    from{
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+    to{
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
+}
+/*约束品目尺寸*/
+@media screen and (max-width: 1024px){
+  html{
+    font-size: 42px !important;
+  }
+}
+@media screen and (min-width: 1920px){
+  html{
+    font-size: 80px !important;
+  }
+}
+

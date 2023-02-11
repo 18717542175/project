@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <style>
+        .empty{ text-align: center; padding: 120px 0; }
+    </style>
+</head>
+<body>
+    <div class="empty">首页</div>
+</body>
+
+
+
+
+<script text="text/script"> 
+ apiready = function () {
+	NVTabBar_open();
+
+ }
+function NVTabBar_open() {
+                var NVTabBar = api.require('NVTabBar');
+                alert(NVTabBar)
+                NVTabBar.open({
+                        styles: {
+                                bg: 'rgba(200,200,200,1)',
+                                h: 54,
+                                dividingLine: {
+                                        width: 0,
+                                        color: '#000'
+                                },
+                                badge: {
+                                        bgColor: '#f00',
+                                        numColor: '#000',
+                                        size: 6.0,
+                                        centerY: 2
+                                }
+                        },
+                        items: [{
+                                w: api.winWidth / 5.0,
+                                iconRect: {
+                                        w: 25.0,
+                                        h: 25.0,
+                                },
+                                icon: {
+                                        normal: 'widget://image/nvtabbar/acti.png',
+                                        highlight: 'widget://image/nvtabbar/actied.png',
+                                        selected: 'widget://image/nvtabbar/actied.png'
+                                },
+                                title: {
+                                        text: '动态',
+                                        size: 12.0,
+                                        normal: '#696969',
+                                        selected: '#eb4f38',
+                                        marginB: 6.0
+                                }
+                        }, {
+                                w: api.winWidth / 5.0,
+                                iconRect: {
+                                        w: 25.0,
+                                        h: 25.0,
+                                },
+                                icon: {
+                                        normal: 'widget://image/nvtabbar/guan.png',
+                                        highlight: 'widget://image/nvtabbar/guaned.png',
+                                        selected: 'widget://image/nvtabbar/guaned.png'
+                                },
+                                title: {
+                                        text: '发现',
+                                        size: 12.0,
+                                        normal: '#696969',
+                                        selected: '#eb4f38',
+                                        marginB: 6.0
+                                }
+                        }, {
+                                w: api.winWidth / 5.0,
+                                bg: {
+                                        marginB: 0,
+                                        image: 'rgba(200,200,200,0)'
+                                },
+                                iconRect: {
+                                        w: 50,
+                                        h: 50,
+                                },
+                                icon: {
+                                        normal: 'widget://image/nvtabbar/yyuan.png',
+                                        highlight: 'widget://image/nvtabbar/mai.png',
+                                        selected: 'widget://image/nvtabbar/mai.png'
+                                }
+                        }, {
+                                w: api.winWidth / 5.0,
+                                iconRect: {
+                                        w: 25.0,
+                                        h: 25.0,
+                                },
+                                icon: {
+                                        normal: 'widget://image/nvtabbar/bir.png',
+                                        highlight: 'widget://image/nvtabbar/bired.png',
+                                        selected: 'widget://image/nvtabbar/bired.png'
+                                },
+                                title: {
+                                        text: '消息',
+                                        size: 12.0,
+                                        normal: '#696969',
+                                        selected: '#eb4f38',
+                                        marginB: 6.0
+                                }
+                        }, {
+                                w: api.winWidth / 5.0,
+                                iconRect: {
+                                        w: 25.0,
+                                        h: 25.0,
+                                },
+                                icon: {
+                                        normal: 'widget://image/nvtabbar/fav.png',
+                                        highlight: 'widget://image/nvtabbar/faved.png',
+                                        selected: 'widget://image/nvtabbar/faved.png'
+                                },
+                                title: {
+                                        text: '我的',
+                                        size: 12.0,
+                                        normal: '#696969',
+                                        selected: '#eb4f38',
+                                        marginB: 6.0
+                                }
+                        }],
+                        selectedIndex: 0
+                }, function(ret, err) {
+                        if (ret) {
+
+                                if (ret.eventType == "click" && ret.index == 0) {
+                                        api.openFrame({
+                                                name: 'kong',
+                                                url: '../html/fame1.html',
+                                                rect: {
+                                                        x: 0,
+                                                        y: 70,
+                                                        h: 200
+                                                }
+                                        });
+                                }
+                                if (ret.eventType == "click" && ret.index == 1) {
+                                        api.openFrame({
+                                                name: 'kong2',
+                                                url: 'fame2.html',
+                                                rect: {
+                                                        x: 0,
+                                                        y: 70,
+                                                        h: 200
+                                                }
+                                        });
+                                }
+                                var NVTabBar = api.require('NVTabBar');
+                                NVTabBar.setBadge({
+                                        index: 4,
+                                        badge: ''
+                                });
+                        }
+                });
+        }
+
+
+
+
+
+
+
+
+</script>
+</html>

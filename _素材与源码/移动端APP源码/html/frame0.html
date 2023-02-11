@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>控制台</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <style>
+        .empty {
+            text-align: center;
+            padding: 120px 0;
+        }
+        
+        body {
+            background-color: #81a9c3;
+        }
+        
+        button {
+            font-size: 15px;
+            width: 45%;
+            height: 50px;
+            border: 2px solid #414f67;
+            border-radius: 4px;
+            background-color: #f8f7f7;
+            color: #414f67;
+            margin-left: 5px;
+            margin-bottom: 5px;
+        }
+        
+        button:hover {
+            color: #f9f1e6;
+            background-color: #0c4250;
+            border: 2px solid #6281c5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="empty">
+        <iframe class="iframe" src="http://192.168.43.125:8080/?action=stream" name="pi" width="300px" height="300px"></iframe>
+
+    </div>
+    <div>
+        <button>打开水泵</button>
+        <button id="netRevenue">关闭水泵</button>
+    </div>
+</body>
+
+</html>

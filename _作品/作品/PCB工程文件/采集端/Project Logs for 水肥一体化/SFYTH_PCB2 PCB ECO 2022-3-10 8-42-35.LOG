@@ -1,0 +1,19 @@
+Added Component: Designator=JP12(HDR2.54-M-LI-6P)
+Add component (AddParameter): Name = "BOM名称"; Value = "6P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "https://shop463601444.taobao.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "封装库来自淘宝 ID：黄晶宝石"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+5 Pin=JP12-1
+Added Pin To Net: NetName=AIN2 Pin=JP12-2
+Added Pin To Net: NetName=AT_AUX Pin=JP8-5
+Added Pin To Net: NetName=AT_AUX Pin=JP12-5
+Added Pin To Net: NetName=AT_AUX Pin=U1-20
+Added Net: Name=AT_AUX
+Added Pin To Net: NetName=AT_MDO Pin=JP12-6
+Added Pin To Net: NetName=AT_MDO Pin=U1-44
+Added Net: Name=AT_MDO
+Added Pin To Net: NetName=AT_RX Pin=JP12-4
+Added Net: Name=AT_RX
+Added Pin To Net: NetName=AT_TX Pin=JP12-3
+Added Net: Name=AT_TX
+Added Member To Class: ClassName=SFYTH_Sheet1 Member=Component JP12 HDR-1X6
+Added Room: Name=SFYTH_Sheet1

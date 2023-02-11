@@ -1,0 +1,13 @@
+Added Component: Designator=JP11(HDR2.54-M-LI-7P)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "BOM名称"; Value = "7P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "https://shop463601444.taobao.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "封装库来自淘宝 ID：黄晶宝石"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=AIN2 Pin=JP11-1
+Added Pin To Net: NetName=VCC3.3 Pin=JP11-2
+Added Pin To Net: NetName=PC13 Pin=JP11-3
+Added Pin To Net: NetName=PC14 Pin=JP11-4
+Added Pin To Net: NetName=PC15 Pin=JP11-5
+Added Pin To Net: NetName=PC0 Pin=JP11-6
+Added Member To Class: ClassName=SFYTH_Sheet1 Member=Component JP11 HDR-1X7
+Added Room: Name=SFYTH_Sheet1

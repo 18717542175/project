@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="commons-beanutils-1.8.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/PRO/web/lib/commons-beanutils-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PRO/web/lib/commons-dbutils-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PRO/web/lib/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PRO/web/lib/druid-1.1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PRO/web/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PRO/web/lib/junit-4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PRO/web/lib/mysql-connector-java-8.0.27.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PRO/web/lib/taglibs-standard-impl-1.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/PRO/web/lib/taglibs-standard-spec-1.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,5 @@
+Added Pin To Net: NetName=AT_TX Pin=IC1-1
+Added Pin To Net: NetName=AT_RX Pin=IC1-4
+Added Pin To Net: NetName=AT_RX Pin=U1-16
+Added Pin To Net: NetName=AT_TX Pin=U1-17
+Added Room: Name=SFYTH_Sheet1

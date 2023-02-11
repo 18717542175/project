@@ -1,0 +1,56 @@
+element.style {
+}
+.mainbox .panel {
+    position: relative;
+    height: 3.875rem;
+    padding: 0 0.1875rem 0.5rem;
+    border: 1px solid rgba(25,186,139,0.17);
+    margin-bottom: 0.1875rem;
+    background: url(../images/line\(1\).png) rgba(255,255,255,0.03);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+user agent stylesheet
+div {
+    display: block;
+}
+style attribute {
+    font-size: 14px;
+}
+body {
+    background: url(../images/bg.jpg) no-repeat top center;
+    line-height: 1.15;
+    min-width: 1024px;
+    max-width: 1920px;
+}
+style attribute {
+    font-size: 33.4583px;
+}
+@media screen and (max-width: 1024px)
+html {
+    font-size: 42px !important;
+}
+.mainbox .panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 2px solid #02a6b5;
+    border-top: 2px solid #02a6b5;
+    width: 10px;
+    height: 10px;
+}
+.mainbox .panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-right: 2px solid #02a6b5;
+    border-top: 2px solid #02a6b5;
+    width: 10px;
+    height: 10px;
+}

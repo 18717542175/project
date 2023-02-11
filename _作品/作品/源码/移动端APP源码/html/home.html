@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"
+    />
+    <style>
+        html,
+        body {
+            background-color: #FFF;
+        }
+        .container {
+          padding: 0 15px;
+          background-color: #FFFFFF;
+        }
+        .top-container {
+          width: 100%;
+          height: 44px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 18px;
+          font-weight: 700;
+        }
+        .top-desc {
+          color: #999999;
+          font-size: 12px;
+        }
+        .icon-container {
+          width: 120px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+        }
+        .icon-container img {
+          width: 16px;
+          height: 16px;
+        }
+        .icon-container img:nth-child(1) {
+          /*margin-right: 10px;*/
+        }
+        .swiper-container {
+          width: 100%;
+          height: 140px;
+          border-radius: 5px;
+          margin: 2px 0 13px;
+          overflow: hidden;
+        }
+        .my-swipe {
+          border-radius: 5px;
+        }
+        .my-swipe .van-swipe-item {
+          color: #fff;
+          height: 145px;
+          text-align: center;
+          border-radius: 5px;
+        }
+        .item-container_title {
+          color: #333333;
+          font-size: 18px;
+          margin-bottom: 15px;
+        }
+        .item-container {
+          width: 100%;
+          display: grid;
+          align-items: center;
+          justify-items: center;
+          justify-content: space-between;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          gap: 24px;
+        }
+        .item {
+          width: 45px;
+        }
+        .item img {
+          width: 100%;
+          height: 45px;
+        }
+        .item span {
+          display: block;
+          text-align: center;
+          font-size: 12px;
+          width: 50px;
+        }
+        .index-img {
+          margin-top: 10px;
+        }
+        .index-img img {
+          /*max-width: 100%;
+          max-height: 100%;*/
+          display: block;
+          margin: auto;
+        }
+        .status-wrap {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: red;
+          position: absolute;
+          right: 0;
+          top: 6px;
+        }
+        .pupop-wrap {
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          background: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .pupop-content {
+          width: 270px;
+          height: 210px;
+          background: #FFFFFF;
+          border-radius: 8px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        .close {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+        }
+        .logo {
+          width: 56px;
+          height: 56px;
+        }
+        .pupop-content h3 {
+          margin: 10px 0 5px;
+        }
+        .pupop-content span {
+          font-size: 14px;
+          color: #999999;
+        }
+        .pupop-btn {
+          width: 220px;
+          height: 33px;
+          background: #9D70BB;
+          color: #FFFFFF;
+          border-radius: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 15px;
+        }
+        .search-bar {
+          width: 100px;
+          height: 33px;
+          background: #F3F3F3;
+          border-radius: 30px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
+        .search-bar img {
+          margin-left: 10px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" >
+      <div class="container">
+        <div id="header"></div>
+        <div class="top-container">
+          <p v-if="token">{{timeDesc}}{{userInfo.nickname}}</p>
+          <p v-else @click="handleLogin">您还未登录，点击登录</p>
+          <div class="icon-container">
+            <!-- <img src="../image/home/icon-search.png" alt="" @click="handleSearch"> -->
+            <div class="search-bar" @click="handleSearch">
+              <img src="../image/home/icon-search.png" alt="">
+            </div>
+            <img src="../image/home/icon-msg.png" alt="" @click="handleMsg" style="height:18px;">
+            <div class="status-wrap" v-show="isRed === 1"></div>
+          </div>
+        </div>
+        <p class="top-desc">欢迎来到校园共享</p>
+        <div class="swiper-container">
+          <van-swipe class="my-swipe" :autoplay="1500" indicator-color="white">
+            <van-swipe-item v-for="item in bannerList" :key="item.id" @click="handleDetails(item)">
+              <van-image fit="fill" :src="item.image" width="100%" height="145" radius="5px 5px 5px 5px"></van-image>
+            </van-swipe-item>
+          </van-swipe>
+        </div>
+        <p class="item-container_title">校园共享</p>
+        <div class="item-container">
+          <div class="item" v-for="item in itemList" :key="item.name" @click="handleGoSearch(item)">
+            <img :src="item.icon_image" alt="">
+            <span>{{item.name}}</span>
+          </div>
+          <div class="item" @click="pupop = true">
+            <img src="../image/icon-more.png" alt="">
+            <span>期待更多</span>
+          </div>
+        </div>
+
+        <!-- 弹窗 -->
+        <div class="pupop-wrap" v-show="pupop">
+          <div class="pupop-content">
+            <van-icon class="close" name="cross" color="#ABABAB" @click="pupop = false"></van-icon>
+            <img class="logo" src="../image/login/logo.png" alt="" >
+            <h3>后续将开放更多功能</h3>
+            <span>敬请期待</span>
+            <div class="pupop-btn" @click="pupop = false">我知道了</div>
+          </div>
+        </div>
+      </div>
+      <div class="index-img">
+        <img v-if="img" :src="img" />
+      </div>
+    </div>
+
+</body>
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/vue.min.js"></script>
+<script type="text/javascript" src="../script/util.js"></script>
+<script type="text/javascript" src="../script/ajax.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+<script>
+    var Vue = window.Vue;
+    var vant = window.vant;
+    Vue.use(vant);
+    apiready = function () {
+        var header = $api.byId('header');
+        $api.fixStatusBar(header);
+
+        api.addEventListener({
+            name: 'viewappear'
+        }, function(ret, err){
+            if( ret ){
+              api.setStatusBarStyle({
+                  style: 'dark'
+              });
+            }
+        });
+
+        api.removeLaunchView(
+          {
+            animation: {
+                type: 'fade',
+                duration: 1
+            }
+          }
+        );
+        api.addEventListener({
+            name: 'loginOut'
+        }, function(ret, err){
+            if( ret ){
+              app.token = $api.getStorage('token')
+              api.setTabBarAttr({
+                index: 0
+              })
+            }
+        });
+        api.addEventListener({
+            name: 'updataUser'
+        }, function(ret, err){
+            if( ret ){
+              app.handleUserInfo()
+            }
+        });
+
+        api.addEventListener({
+            name: 'tabitembtn'
+        }, function(ret) {
+            let token = $api.getStorage('token')
+            if (!token) {
+              vant.Toast('您还未登录，即将跳转登录')
+              app.Login()
+              return false
+            }
+
+            api.setTabBarAttr({
+                index: ret.index
+            });
+        })
+
+        api.addEventListener({
+            name: 'isRead'
+        }, function(ret, err){
+            if( ret ){
+               app.handleStatus()
+            }
+        });
+
+        api.addEventListener({
+            name: 'keyback'
+        }, function(ret, err){
+            if( ret ){
+              api.toast({
+                  msg: '再次返回，退出应用',
+                  duration: 2000,
+                  location: 'center'
+              });
+
+              api.addEventListener({
+                  name: 'keyback'
+              }, function(ret, err){
+                  if( ret ){
+                    api.closeWidget({
+                      silent: true
+                    })
+                  }
+              });
+
+            }
+        });
+
+
+        var app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                  timeDesc: '早上好',
+                  userInfo: {},
+                  isPopup: false,
+                  bannerList: [],
+                  itemList: [],
+                  token: '',
+                  img: '',
+                  isRed: 0, // 0没用新消息 1有新消息
+                  pupop: false
+                }
+            },
+            created() {
+              if ($api.getStorage('token')) {
+                this.token = $api.getStorage('token') || ''
+                this.handleUserInfo()
+                this.handleStatus()
+              }
+              this.handleGetTimeDesc()
+              this.handleGetBanner()
+              this.handleItemList()
+              this.handleSystem()
+            },
+            methods: {
+              handleLogin() {
+                  api.openTabLayout({
+                      name: 'login',
+                      url: 'widget://html/login/index.html',
+                      hideNavigationBar: true
+                  })
+              },
+              // 获取问候时间段
+              handleGetTimeDesc() {
+                let now = new Date()
+                let hour = now.getHours()
+                if(hour < 6){this.timeDesc = "凌晨好！"}
+                else if (hour < 9){this.timeDesc ="早上好！"}
+                else if (hour < 12){this.timeDesc ="上午好！"}
+                else if (hour < 14){this.timeDesc ="中午好！"}
+                else if (hour < 17){this.timeDesc ="下午好！"}
+                else if (hour < 19){this.timeDesc ="傍晚好！"}
+                else if (hour < 22){this.timeDesc ="晚上好！"}
+                else {this.timeDesc ="夜里好！"}
+              },
+              Login() {
+                setTimeout(() => {
+                  api.openTabLayout({
+                      name: 'login',
+                      url: 'widget://html/login/index.html',
+                      hideNavigationBar: true
+                  })
+                }, 800)
+              },
+              handleSearch() {
+                let token = $api.getStorage('token')
+                if (!token) {
+                  vant.Toast('您还未登录，即将跳转登录')
+                  this.Login()
+                  return false
+                }
+                api.openTabLayout({
+                    name: 'search',
+                    url: 'widget://html/search.html',
+                    title: '搜索',
+                    hideNavigationBar: false,
+                    pageParam: {
+                      id: null
+                    },
+                    navigationBar: {
+                        background: '#FFFFFF',
+                        shadow: "#FFFFFF",
+                        color: '#333333',
+                        leftButtons: [{
+                            iconPath: 'widget://image/back.png'
+                        }]
+                    }
+                })
+              },
+              handleGoSearch(item) {
+                let token = $api.getStorage('token')
+                if (!token) {
+                  vant.Toast('您还未登录，即将跳转登录')
+                  this.Login()
+                  return false
+                }
+                api.openTabLayout({
+                    name: 'search',
+                    url: 'widget://html/search.html',
+                    title: '搜索',
+                    hideNavigationBar: false,
+                    pageParam: {
+                      id: item.id
+                    },
+                    navigationBar: {
+                        background: '#FFFFFF',
+                        shadow: "#FFFFFF",
+                        color: '#333333',
+                        leftButtons: [{
+                            iconPath: 'widget://image/back.png'
+                        }]
+                    }
+                })
+              },
+              handleMsg() {
+                let token = $api.getStorage('token')
+                if (!token) {
+                  vant.Toast('您还未登录，即将跳转登录')
+                  this.Login()
+                  return false
+                }
+                api.openTabLayout({
+                    name: 'search',
+                    url: 'widget://html/message.html',
+                    title: '消息',
+                    hideNavigationBar: false,
+                    navigationBar: {
+                        background: '#FFFFFF',
+                        shadow: "#FFFFFF",
+                        color: '#333333',
+                        leftButtons: [{
+                            iconPath: 'widget://image/back.png'
+                        }]
+                    }
+                })
+              },
+              // 获取banner列表
+              handleGetBanner() {
+                $serverJson({
+                    "url": "/api/banner/getlist"
+                }, function(res) {
+                  app.bannerList = res.data
+                }, function(err) {})
+              },
+              // 获取类型列表
+              handleItemList() {
+                $serverJson({
+                    "url": "/api/common/typelist",
+                }, function(res) {
+                    app.itemList = res.data
+                }, function(err) {})
+              },
+              // 获取用户信息
+              handleUserInfo() {
+                  $serverForm({
+                      "url": "/api/user/userinfo",
+                      "value": {},
+                  }, function(res) {
+                      if (+res.code === 1) {
+                        app.token = $api.getStorage('token')
+                        app.userInfo = res.data
+                      } else {
+                          vant.Toast(res.msg)
+                      }
+                  }, function(err) {})
+              },
+              // 打开详情
+              handleDetails(item) {
+                console.log(JSON.stringify(item));
+                if (+item.param === 0) {
+                  return false
+                }
+                api.openTabLayout({
+                    name: 'details',
+                    url: 'widget://html/details.html',
+                    title: '详情',
+                    hideNavigationBar: false,
+                    pageParam: {
+                      id: item.param
+                    },
+                    navigationBar: {
+                        background: '#FFFFFF',
+                        shadow: "#FFFFFF",
+                        color: '#333333',
+                        leftButtons: [{
+                            iconPath: 'widget://image/back.png'
+                        }]
+                    }
+                })
+              },
+              handleSystem() {
+                $serverForm({
+                    "url": "/api/common/system",
+                }, function(res) {
+                    app.img = res.data.index_image
+                }, function(err) {})
+              },
+              // 查询是否有新消息
+              handleStatus() {
+                $serverForm({
+                    "url": "/api/user/isread",
+                    "value": {},
+                }, function(res) {
+                    if (+res.code === 1) {
+                      app.isRed = res.data.is_read
+                    } else {
+                        vant.Toast(res.msg)
+                    }
+                }, function(err) {})
+              }
+
+            }
+        });
+        // 下拉刷新
+        api.setRefreshHeaderInfo({
+            loadingImg: 'widget://image/refresh.png',
+            bgColor: '#F4F7FE',
+            textColor: '#8091A7',
+            textDown: '下拉刷新',
+            textUp: '释放立即刷新',
+            showTime: false,
+        }, function(ret, err) {
+          app.handleGetTimeDesc()
+          app.handleGetBanner()
+          app.handleItemList()
+          app.handleSystem()
+          if ($api.getStorage('token')) {
+              app.handleStatus()
+          }
+          //刷新完数据后,将下拉刷新的事件关闭
+          api.refreshHeaderLoadDone();
+        })
+    }
+</script>
+
+</html>

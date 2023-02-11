@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=VM Pin=JP10-2
+Removed Pin From Net: NetName=AIN2 Pin=M1-1
+Removed Pin From Net: NetName=VM Pin=S1-2
+Removed Member From Class: ClassName=SFYTH_Sheet1 Member=M1
+Change Component Footprint: Designator=JP10 Old Footprint=KF128-5.08-2P New Footprint=KF2EDGK5.08-LI-2P
+Added Pin To Net: NetName=NetJP10_2 Pin=JP10-2
+Added Pin To Net: NetName=NetJP10_2 Pin=S1-1
+Added Net: Name=NetJP10_2
+Added Room: Name=SFYTH_Sheet1

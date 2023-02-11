@@ -1,0 +1,25 @@
+Added Pin To Net: NetName=M1+ Pin=JP3-1
+Added Pin To Net: NetName=M1+ Pin=P1-3
+Added Net: Name=M1+
+Added Pin To Net: NetName=M1- Pin=JP3-2
+Added Pin To Net: NetName=M1- Pin=P1-2
+Added Net: Name=M1-
+Added Pin To Net: NetName=M2+ Pin=JP4-2
+Added Pin To Net: NetName=M2+ Pin=P1-5
+Added Net: Name=M2+
+Added Pin To Net: NetName=M2- Pin=JP4-1
+Added Pin To Net: NetName=M2- Pin=P1-4
+Added Net: Name=M2-
+Added Pin To Net: NetName=M3+ Pin=JP5-1
+Added Pin To Net: NetName=M3+ Pin=P7-3
+Added Net: Name=M3+
+Added Pin To Net: NetName=M3- Pin=JP5-2
+Added Pin To Net: NetName=M3- Pin=P7-2
+Added Net: Name=M3-
+Added Pin To Net: NetName=M4+ Pin=JP6-2
+Added Pin To Net: NetName=M4+ Pin=P7-5
+Added Net: Name=M4+
+Added Pin To Net: NetName=M4- Pin=JP6-1
+Added Pin To Net: NetName=M4- Pin=P7-4
+Added Net: Name=M4-
+Added Room: Name=SFYTH_Sheet1

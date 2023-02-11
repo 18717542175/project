@@ -1,0 +1,43 @@
+Removed Pin From Net: NetName=AIN2 Pin=V1-4
+Removed Pin From Net: NetName=AIN2 Pin=V2-4
+Added Component: Designator=JP12(HDR2.54-M-LI-6P)
+Add component (AddParameter): Name = "BOM名称"; Value = "6P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "https://shop463601444.taobao.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "封装库来自淘宝 ID：黄晶宝石"; VariantName = "[No Variations]"
+Added Component: Designator=直流电机驱动(TB6612FNG)
+Added Pin To Net: NetName=+5 Pin=JP12-1
+Added Pin To Net: NetName=AIN2 Pin=JP12-2
+Added Pin To Net: NetName=VM Pin=直流电机驱动-1
+Added Pin To Net: NetName=AIN1 Pin=直流电机驱动-2
+Added Pin To Net: NetName=AIN2 Pin=直流电机驱动-3
+Added Pin To Net: NetName=M2+ Pin=直流电机驱动-4
+Added Pin To Net: NetName=M2- Pin=直流电机驱动-5
+Added Pin To Net: NetName=M1+ Pin=直流电机驱动-6
+Added Pin To Net: NetName=M1- Pin=直流电机驱动-7
+Added Pin To Net: NetName=AIN2 Pin=直流电机驱动-8
+Added Pin To Net: NetName=AIN2 Pin=直流电机驱动-9
+Added Pin To Net: NetName=PB4 Pin=直流电机驱动-10
+Added Pin To Net: NetName=AIN1 Pin=直流电机驱动-11
+Added Pin To Net: NetName=AIN2 Pin=直流电机驱动-12
+Added Pin To Net: NetName=AIN1 Pin=直流电机驱动-13
+Added Pin To Net: NetName=AIN1 Pin=直流电机驱动-14
+Added Pin To Net: NetName=AIN2 Pin=直流电机驱动-15
+Added Pin To Net: NetName=PB5 Pin=直流电机驱动-16
+Added Pin To Net: NetName=AT_AUX Pin=JP8-5
+Added Pin To Net: NetName=AT_AUX Pin=JP12-5
+Added Pin To Net: NetName=AT_AUX Pin=U1-20
+Added Net: Name=AT_AUX
+Added Pin To Net: NetName=AT_MDO Pin=JP12-6
+Added Pin To Net: NetName=AT_MDO Pin=U1-44
+Added Net: Name=AT_MDO
+Added Pin To Net: NetName=AT_RX Pin=JP8-7
+Added Pin To Net: NetName=AT_RX Pin=JP12-4
+Added Pin To Net: NetName=AT_RX Pin=U1-29
+Added Net: Name=AT_RX
+Added Pin To Net: NetName=AT_TX Pin=JP8-2
+Added Pin To Net: NetName=AT_TX Pin=JP12-3
+Added Pin To Net: NetName=AT_TX Pin=U1-30
+Added Net: Name=AT_TX
+Added Member To Class: ClassName=SFYTH_Sheet1 Member=Component JP12 HDR-1X6
+Added Member To Class: ClassName=SFYTH_Sheet1 Member=Component 直流电机驱动 TB6612FNG
+Added Room: Name=SFYTH_Sheet1

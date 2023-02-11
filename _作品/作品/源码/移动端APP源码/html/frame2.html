@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>设备管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <style>
+        .empty {
+            text-align: center;
+            padding: 120px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="empty">设备管理</div>
+</body>
+<script>
+    apiready = function() {
+        oprm();
+    };
+
+    function oprm() {
+        var UIListView = api.require('UIListView');
+        UIListView.open({
+            rect: {
+                x: 0,
+                y: 0,
+                w: api.winWidth,
+                h: api.frameHeight
+            },
+            data: [{
+                uid: '1001',
+                imgPath: 'widget://res/img/apicloud.png',
+                title: '监控设备',
+                subTitle: '网络通讯传输模块',
+                remark: '初期设备(53213)',
+                icon: ''
+            }, {
+                uid: '1001',
+                imgPath: 'widget://res/img/apicloud.png',
+                title: '灌溉设备',
+                subTitle: '主要工作设备',
+                remark: '初期设备(21114)',
+                icon: ''
+            }, {
+                uid: '1001',
+                imgPath: 'widget://res/img/apicloud.png',
+                title: '控制设备',
+                subTitle: '下发命令设备',
+                remark: '初期设备(12421)',
+                icon: ''
+            }],
+            rightBtns: [{
+                bgColor: '#696969', //按钮颜色
+                activeBgColor: '',
+                width: 70,
+                title: '按钮',
+                titleSize: 12,
+                titleColor: '#fff',
+                icon: '',
+                iconWidth: 20
+            }],
+            styles: {
+                borderColor: '#696969',
+                item: {
+                    bgColor: '#f4f4f7', //列表颜色
+                    activeBgColor: '#F5F5F5',
+                    height: 65.0,
+                    imgWidth: 40,
+                    imgHeight: 40,
+                    imgCorner: 4,
+                    placeholderImg: '',
+                    titleSize: 12.0,
+                    titleColor: '#000',
+                    subTitleSize: 12.0,
+                    subTitleColor: '#000',
+                    remarkColor: '#000',
+                    remarkSize: 16,
+                    remarkIconWidth: 30
+                }
+            },
+            fixedOn: api.frameName
+        }, function(ret, err) {
+            if (ret) {
+
+            } else {
+
+            }
+        });
+    };
+</script>
+
+</html>
